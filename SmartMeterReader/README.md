@@ -1,0 +1,26 @@
+# Brief description of the SmartMeterReaderTask.
+
+## Suggestions for improvement
+### Logger
+- Add logback
+- Configure suitable appender
+- Add SLF4J
+
+### WebClient
+Currently, application can read only from one endpoint due to creating 
+WebClient as Bean. If we want to read from more endpoints, we have to create
+WebClient with adjustable uri or create WebClient for each endpoint.
+
+### Incoming data
+Application accept only consist data, inconsistent data aren´t 
+stored into database. There is no policy what to do with inconsistent data (JSON) in task.
+For improvement, we can store inconsistent data and merge with data which come later.
+
+Application can't store measurement results for smart meter which wasn't registered before.
+These kind of data we can store and insert later (after smart meter registration).
+
+If smart meter ins't store in DB, we get it from measurement results and save it before saving measurement.
+
+### Security
+Application doesn't have set up security policy. 
+To se up security we can add Spring Security Dependency and set up HttpSecurity.

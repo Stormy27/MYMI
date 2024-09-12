@@ -1,0 +1,15 @@
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\model\Measurement.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\repository\SmartMeterRepository.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\service\SmartMeterService.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\repository\MeasurementRepository.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\config\WebClientConfig.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\service\SmartReaderScheduler.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\mapping\SmartMeterMapper.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\SmartMeterReaderApplication.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\service\SmartMeterController.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\service\MeasurementService.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\dto\SmartMeterDTO.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\mapping\MeasurementMapper.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\dto\TransactionDTO.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\model\SmartMeter.java
+C:\Users\Honza\Documents\SmartMeterReader\src\main\java\com\smartmeter\reader\dto\MeasurementResultDTO.java
