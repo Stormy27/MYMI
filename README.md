@@ -1,8 +1,8 @@
 # Description
-Repository contains two apps. First is springboot app whis is periodicly read data from smart meter, process it, validate it and store into database.
+Repository contains two apps. First (SmartMeterReader) is springboot app whis is periodicly read data from smart meter, process it, validate it and store into database.
 For proper run we have to first register all smart meters via POST request.
 
-Second app is very simple node.js server which after run register all smart meters. And when server handle GET, then return randomly generated data for last hour. 
+Second app (DummyReader) is very simple node.js server which after run register all smart meters. And when server handle GET, then return randomly generated data for last hour. 
 
 ## Prerequisites
 * Java 17
