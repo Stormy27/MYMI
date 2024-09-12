@@ -8,6 +8,7 @@ Second app (DummyReader) is very simple node.js server which after run register 
 * Java 17
 * Maven
 * node.js
+* npm
 
 ## Prepare app
 * Execute the command ```mvn clean install package``` in the SmartMeterReader (there is pom.xml)
