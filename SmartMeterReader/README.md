@@ -1,5 +1,6 @@
 # Brief description of the SmartMeterReaderTask.
-
+Application has exposed one endpoint for registration smart meters.<p>
+There is scheduler which read data from smart meter every 10 minutes at the start of the hour .
 ## Suggestions for improvement
 ### Logger
 - Add logback
