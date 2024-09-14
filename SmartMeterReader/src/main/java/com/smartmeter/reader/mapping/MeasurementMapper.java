@@ -24,7 +24,7 @@ public class MeasurementMapper {
         List<Measurement> measurements = new LinkedList<>();
         for (var entry : measurementResultDTO.getVoltage().entrySet()) {
             Measurement measurement = new Measurement();
-            measurement.setTimestamp(convertISO8601String(entry.getKey()));
+            measurement.setTimestamp(ZonedDateTime.parse(entry.getKey()));
             measurement.setVoltage(entry.getValue());
 
             measurements.add(measurement);
@@ -32,7 +32,7 @@ public class MeasurementMapper {
 
         for (var entry : measurementResultDTO.getCurrent().entrySet()) {
             Measurement measurement = measurements.stream()
-                .filter(x -> x.getTimestamp().equals(convertISO8601String(entry.getKey())))
+                .filter(x -> x.getTimestamp().equals(ZonedDateTime.parse(entry.getKey())))
                 .findFirst()
                 .orElseThrow(() -> new NoSuchElementException("Can't find current value for time: " + entry.getValue()));
 
@@ -40,13 +40,6 @@ public class MeasurementMapper {
         }
 
         return measurements;
-    }
-
-    private static Timestamp convertISO8601String(String value) {
-        ZonedDateTime zonedDateTime = ZonedDateTime.parse(value, DateTimeFormatter.ISO_ZONED_DATE_TIME);
-        Timestamp timestamp = Timestamp.from(zonedDateTime.toInstant());
-
-        return timestamp;
     }
 
     private static void validate(MeasurementResultDTO measurementResultDTO) {

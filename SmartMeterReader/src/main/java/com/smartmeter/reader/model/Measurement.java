@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
+import java.time.ZonedDateTime;
 import java.util.UUID;
 
 @Entity
@@ -18,8 +19,8 @@ public class Measurement {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column(name = "timestamp")
-    private Timestamp timestamp;
+    @Column(name = "timestamp", columnDefinition = "TIMESTAMP WITH TIME ZONE")
+    private ZonedDateTime timestamp;
 
     @Column(name = "voltage")
     private double voltage;

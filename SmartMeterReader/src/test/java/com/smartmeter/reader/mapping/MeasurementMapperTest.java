@@ -17,10 +17,13 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class MeasurementMapperTest {
 
+    public static final String TIMESTAMP_00 = "2024-09-01T00:00:00+02:00[Europe/Prague]";
+    public static final String TIMESTAMP_15 = "2024-09-01T00:15:00+02:00[Europe/Prague]";
+
     @Test
     public void testFromSmartMeterMeasurementDTO() {
-        Map<String, Double> voltageMap = Map.of("2024-09-12T01:00:00Z", 230.0, "2024-09-12T02:00:00Z", 235.0);
-        Map<String, Double> currentMap =Map.of("2024-09-12T01:00:00Z", 10.0, "2024-09-12T02:00:00Z", 11.0);
+        Map<String, Double> voltageMap = Map.of(TIMESTAMP_00, 230.0, TIMESTAMP_15, 235.0);
+        Map<String, Double> currentMap =Map.of("2024-09-01T00:00:00+02:00[Europe/Prague]", 10.0, "2024-09-01T00:15:00+02:00[Europe/Prague]", 11.0);
 
         MeasurementResultDTO dto = new MeasurementResultDTO();
         dto.setVoltage(voltageMap);
@@ -31,18 +34,20 @@ public class MeasurementMapperTest {
         assertEquals(2, measurements.size(), "Should have two measurements");
 
         Measurement measurement1 = measurements.stream()
-            .filter(m -> m.getTimestamp().equals(Timestamp.from(ZonedDateTime.parse("2024-09-12T01:00:00Z", DateTimeFormatter.ISO_ZONED_DATE_TIME).toInstant())))
+            .filter(m -> m.getTimestamp().equals(ZonedDateTime.parse("2024-09-01T00:00:00+02:00[Europe/Prague]", DateTimeFormatter.ISO_ZONED_DATE_TIME)))
             .findFirst()
             .get();
-        assertEquals(Timestamp.from(ZonedDateTime.parse("2024-09-12T01:00:00Z", DateTimeFormatter.ISO_ZONED_DATE_TIME).toInstant()), measurement1.getTimestamp(), "Timestamp mismatch for measurement 1");
+
+        assertEquals(ZonedDateTime.parse("2024-09-01T00:00:00+02:00[Europe/Prague]", DateTimeFormatter.ISO_ZONED_DATE_TIME), measurement1.getTimestamp(), "Timestamp mismatch for measurement 1");
         assertEquals(230.0, measurement1.getVoltage(), "Voltage mismatch for measurement 1");
         assertEquals(10.0, measurement1.getCurrent(), "Current mismatch for measurement 1");
 
         Measurement measurement2 = measurements.stream()
-                .filter(m -> m.getTimestamp().equals(Timestamp.from(ZonedDateTime.parse("2024-09-12T02:00:00Z", DateTimeFormatter.ISO_ZONED_DATE_TIME).toInstant())))
-                .findFirst()
-                .get();
-        assertEquals(Timestamp.from(ZonedDateTime.parse("2024-09-12T02:00:00Z", DateTimeFormatter.ISO_ZONED_DATE_TIME).toInstant()), measurement2.getTimestamp(), "Timestamp mismatch for measurement 2");
+            .filter(m -> m.getTimestamp().equals(ZonedDateTime.parse("2024-09-01T00:15:00+02:00[Europe/Prague]", DateTimeFormatter.ISO_ZONED_DATE_TIME)))
+            .findFirst()
+            .get();
+
+        assertEquals(ZonedDateTime.parse("2024-09-01T00:15:00+02:00[Europe/Prague]", DateTimeFormatter.ISO_ZONED_DATE_TIME), measurement2.getTimestamp(), "Timestamp mismatch for measurement 2");
         assertEquals(235.0, measurement2.getVoltage(), "Voltage mismatch for measurement 2");
         assertEquals(11.0, measurement2.getCurrent(), "Current mismatch for measurement 2");
     }
@@ -52,7 +57,7 @@ public class MeasurementMapperTest {
         MeasurementResultDTO dto = new MeasurementResultDTO();
 
         Map<String, Double> voltageMap = new LinkedHashMap<>();
-        voltageMap.put("2024-09-12T01:00:00Z", 230.0);
+        voltageMap.put(TIMESTAMP_00, 230.0);
 
         dto.setVoltage(voltageMap);
         dto.setCurrent(new LinkedHashMap<>());
