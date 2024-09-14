@@ -35,3 +35,6 @@ To se up security we can add Spring Security Dependency and set up `HttpSecurity
 The `timestamp` property of the `Measurement` entity is of type `ZonedDateTime`.
 Some older databases or versions may not fully support this data type. 
 In such cases, it may be necessary to use `Instant` or `LocalDateTime` and handle time zone conversions in the application layer.
+
+Credentials is stored in application properties. Better to provide credentials via environment variables or stored it 
+in encrypted files. However, could be use any management tool.
