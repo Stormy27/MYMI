@@ -7,6 +7,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class SmartMeterMapper {
+    private SmartMeterMapper() {
+        throw new UnsupportedOperationException("Cannot instantiate SmartMeterMapper");
+    }
 
     /**
      * Converts a {@link TransactionDTO} into a list of {@link SmartMeter} entities.

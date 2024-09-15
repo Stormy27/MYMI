@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class MeasurementMapper {
+    private MeasurementMapper() {
+        throw new UnsupportedOperationException("Cannot instantiate MeasurementMapper");
+    }
+
     /**
      * Converts a {@link MeasurementResultDTO} into a list of {@link Measurement} entities.
      *
