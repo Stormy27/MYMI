@@ -28,7 +28,7 @@ public class SmartMeterController {
     @PostMapping("/register")
     public ResponseEntity<String> registerSmartMeter(@RequestBody TransactionDTO transactionDTO) {
         try {
-            smartMeterService.saveSmartMeter(transactionDTO);
+            smartMeterService.saveSmartMeters(transactionDTO);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("An unexpected error occurred: " + e.getMessage());

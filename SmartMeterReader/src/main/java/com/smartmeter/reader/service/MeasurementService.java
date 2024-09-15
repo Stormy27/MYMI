@@ -31,7 +31,7 @@ public class MeasurementService {
      * @return a list of saved {@link Measurement} entities
      * @throws NoSuchElementException if the smart meter with the given ID cannot be found in DB
      */
-    public List<Measurement> saveMeasurement(MeasurementResultDTO measurementResult) {
+    public List<Measurement> saveMeasurements(MeasurementResultDTO measurementResult) {
         final String smartMeterId = measurementResult.getId();
         SmartMeter smartMeter = smartMeterService.findById(smartMeterId)
                 .orElseThrow(() -> new NoSuchElementException(String.format(CANT_FOUND_SMART_MSG, smartMeterId)));

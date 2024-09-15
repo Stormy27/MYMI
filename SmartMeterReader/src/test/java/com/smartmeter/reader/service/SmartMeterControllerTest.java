@@ -13,7 +13,6 @@ import java.util.Collections;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static org.mockito.Mockito.doNothing;
 import static org.mockito.Mockito.when;
 
 @SpringJUnitConfig
@@ -29,7 +28,7 @@ public class SmartMeterControllerTest {
     public void testRegisterSmartMeter_Success() {
         TransactionDTO transactionDTO = new TransactionDTO();
 
-        when(smartMeterService.saveSmartMeter(transactionDTO)).thenReturn(Collections.emptyList());
+        when(smartMeterService.saveSmartMeters(transactionDTO)).thenReturn(Collections.emptyList());
 
         ResponseEntity<String> response = smartMeterController.registerSmartMeter(transactionDTO);
 
@@ -41,7 +40,7 @@ public class SmartMeterControllerTest {
     public void testRegisterSmartMeter_Exception() {
         TransactionDTO transactionDTO = new TransactionDTO();
 
-        when(smartMeterService.saveSmartMeter(transactionDTO)).thenThrow(new RuntimeException("Unexpected error"));
+        when(smartMeterService.saveSmartMeters(transactionDTO)).thenThrow(new RuntimeException("Unexpected error"));
 
         ResponseEntity<String> response = smartMeterController.registerSmartMeter(transactionDTO);
 

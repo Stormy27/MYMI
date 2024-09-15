@@ -47,6 +47,6 @@ class SmartReaderSchedulerTest {
 
         smartReaderScheduler.readSmartMeterData();
 
-        verify(measurementService, times(1)).saveMeasurement(mockResult);
+        verify(measurementService, times(1)).saveMeasurements(mockResult);
     }
 }

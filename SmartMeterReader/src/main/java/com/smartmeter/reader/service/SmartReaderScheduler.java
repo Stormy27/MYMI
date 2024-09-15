@@ -30,6 +30,6 @@ public class SmartReaderScheduler {
                 .bodyToMono(MeasurementResultDTO.class)
                 .block();
 
-            measurementService.saveMeasurement(measurementResultDTO);
+            measurementService.saveMeasurements(measurementResultDTO);
         }
 }

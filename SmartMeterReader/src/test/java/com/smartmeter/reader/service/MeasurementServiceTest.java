@@ -48,7 +48,7 @@ public class MeasurementServiceTest {
 
         when(measurementRepository.saveAll(anyList())).thenReturn(List.of(measurement));
 
-        List<Measurement> savedMeasurements = measurementService.saveMeasurement(measurementResultDTO);
+        List<Measurement> savedMeasurements = measurementService.saveMeasurements(measurementResultDTO);
 
         assertNotNull(savedMeasurements, "Saved measurements should not be null");
         assertEquals(1, savedMeasurements.size(), "There should be one measurement saved");
@@ -65,7 +65,7 @@ public class MeasurementServiceTest {
 
         NoSuchElementException thrown = assertThrows(
                 NoSuchElementException.class,
-                () -> measurementService.saveMeasurement(measurementResultDTO),
+                () -> measurementService.saveMeasurements(measurementResultDTO),
                 "Expected saveMeasurement to throw, but it didn't"
         );
 

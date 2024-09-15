@@ -52,7 +52,7 @@ class SmartMeterServiceTest {
 
         when(smartMeterRepository.saveAll(anyList())).thenReturn(smartMeters);
 
-        List<SmartMeter> result = smartMeterService.saveSmartMeter(transactionDTO);
+        List<SmartMeter> result = smartMeterService.saveSmartMeters(transactionDTO);
 
         assertNotNull(result);
         assertEquals(1, result.size());
