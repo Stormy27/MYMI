@@ -1,5 +1,0 @@
-com\smartmeter\reader\mapping\MeasurementMapperTest.class
-com\smartmeter\reader\SmartMeterReaderApplicationTests.class
-com\smartmeter\reader\service\SmartMeterControllerTest.class
-com\smartmeter\reader\mapping\SmartMeterMapperTest.class
-com\smartmeter\reader\service\MeasurementServiceTest.class
