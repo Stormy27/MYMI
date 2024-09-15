@@ -22,7 +22,7 @@ public class SmartReaderScheduler {
          * Scheduled task to read data from smart meters and save the measurements.
          * The task runs every 10 minutes at the start of the hour
          */
-        @Scheduled(cron = "10 1-23 * * *")
+        @Scheduled(cron = "0 10 * * * *")
         public void readSmartMeterData() {
             MeasurementResultDTO measurementResultDTO = webClient.get()
                 .uri("/read")
